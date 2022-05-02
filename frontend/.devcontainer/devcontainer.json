@@ -1,0 +1,29 @@
+{
+  "name": "template_web_app_frontend",
+  "remoteUser": "template_web_app_frontend",
+  "dockerComposeFile": "../../docker-compose.dev.yaml",
+  "service": "frontend",
+  "postAttachCommand": "yarn install",
+  "workspaceFolder": "/workspaces/frontend",
+  "overrideCommand": true,
+  "extensions": [
+    "mutantdino.resourcemonitor",
+    "eamodio.gitlens",
+    "mhutchie.git-graph",
+    "esbenp.prettier-vscode",
+    "dbaeumer.vscode-eslint",
+    "hbenl.vscode-test-explorer",
+    "kavod-io.vscode-jest-test-adapter",
+    "irongeek.vscode-env",
+    "streetsidesoftware.code-spell-checker",
+    "dsznajder.es7-react-js-snippets"
+  ],
+  "settings": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSaveMode": "file",
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.fixAll": true
+    }
+  }
+}

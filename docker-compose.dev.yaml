@@ -1,0 +1,91 @@
+version: "3.9"
+
+services:
+  root:
+    build:
+      context: .
+      dockerfile: ./.devcontainer/Dockerfile
+      args:
+        - REMOTE_USER=${ROOT_REMOTE_USER}
+        - REMOTE_WORKSPACES=${ROOT_REMOTE_WORKSPACES}
+        - REMOTE_HOME=${ROOT_REMOTE_HOME}
+    container_name: ${ROOT_CONTAINER_NAME}
+    working_dir: ${ROOT_REMOTE_WORKSPACES}
+    user: ${ROOT_REMOTE_USER}
+    tty: true
+    volumes:
+      - type: bind
+        source: .
+        target: ${PROJECT_ROOT}
+      - type: volume
+        source: root_bash_history
+        target: /commandhistory
+      - type: volume
+        source: root_vscode_extensions
+        target: ${ROOT_REMOTE_HOME}/.vscode-server/extensions
+
+  frontend:
+    build:
+      context: .
+      dockerfile: ./frontend/.devcontainer/Dockerfile
+      args:
+        - REMOTE_USER=${FRONTEND_REMOTE_USER}
+        - REMOTE_WORKSPACES=${FRONTEND_REMOTE_WORKSPACES}
+        - REMOTE_HOME=${FRONTEND_REMOTE_HOME}
+    container_name: ${FRONTEND_CONTAINER_NAME}
+    working_dir: ${FRONTEND_REMOTE_WORKSPACES}
+    user: ${FRONTEND_REMOTE_USER}
+    tty: true
+    volumes:
+      - type: bind
+        source: .
+        target: ${PROJECT_ROOT}
+      - type: volume
+        source: frontend_bash_history
+        target: /commandhistory
+      - type: volume
+        source: frontend_vscode_extensions
+        target: ${FRONTEND_REMOTE_HOME}/.vscode-server/extensions
+
+  backend:
+    build:
+      context: .
+      dockerfile: ./backend/.devcontainer/Dockerfile
+      args:
+        - REMOTE_USER=${BACKEND_REMOTE_USER}
+        - REMOTE_WORKSPACES=${BACKEND_REMOTE_WORKSPACES}
+        - REMOTE_HOME=${BACKEND_REMOTE_HOME}
+    container_name: ${BACKEND_CONTAINER_NAME}
+    working_dir: ${BACKEND_REMOTE_WORKSPACES}
+    user: ${BACKEND_REMOTE_USER}
+    tty: true
+    volumes:
+      - type: bind
+        source: .
+        target: ${PROJECT_ROOT}
+      - type: volume
+        source: backend_bash_history
+        target: /commandhistory
+      - type: volume
+        source: backend_vscode_extensions
+        target: ${REMOTE_BACKEND_HOME}/.vscode-server/extensions
+
+networks:
+  template_web_app_network:
+    external: true
+
+volumes:
+  root_bash_history:
+    name: ${ROOT_BASH_HISTORY_VOLUME_NAME}
+  root_vscode_extensions:
+    name: ${ROOT_VSCODE_EXTENSIONS_VOLUME_NAME}
+
+  frontend_bash_history:
+    name: ${ROOT_BASH_HISTORY_VOLUME_NAME}
+  frontend_vscode_extensions:
+    name: ${ROOT_VSCODE_EXTENSIONS_VOLUME_NAME}
+
+  backend_bash_history:
+    name: ${ROOT_BASH_HISTORY_VOLUME_NAME}
+  backend_vscode_extensions:
+    name: ${ROOT_VSCODE_EXTENSIONS_VOLUME_NAME}
