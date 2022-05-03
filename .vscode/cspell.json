@@ -2,5 +2,15 @@
   "version": "0.2",
   "gitignoreRoot": [".."],
   "ignorePaths": [".devcontainer", "node_modules"],
-  "words": ["esbuild", "linebreak", "Parens", "Prettierrc", "vite", "vitejs", "vitest"]
+  "words": [
+    "esbuild",
+    "linebreak",
+    "nestjs",
+    "Parens",
+    "prebuild",
+    "Prettierrc",
+    "vite",
+    "vitejs",
+    "vitest"
+  ]
 }

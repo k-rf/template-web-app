@@ -1,0 +1,74 @@
+{
+  "name": "template_web_app_backend",
+  "version": "0.0.0",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "prebuild": "rimraf dist",
+    "build": "nest build",
+    "start": "nest start",
+    "start:dev": "nest start --watch",
+    "start:debug": "nest start --debug --watch",
+    "start:prod": "node dist/main",
+    "check:lint": "eslint \"{src,test}/**\" --fix --cache --ext .tsx,.ts,.js",
+    "check:format": "prettier . --write",
+    "check:type": "tsc --project tsconfig.json --pretty --noEmit",
+    "check:all": "npm-run-all -s check:type check:format check:lint",
+    "test": "jest --runInBand",
+    "test:cov": "jest --runInBand --coverage=true",
+    "test:watch": "jest --runInBand --watch",
+    "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
+    "test:e2e": "jest --config ./test/jest-e2e.js --runInBand"
+  },
+  "lint-staged": {
+    "*.{tsx,ts,js}": [
+      "bash -c 'yarn check:type'",
+      "prettier --write",
+      "eslint --cache --fix"
+    ],
+    "*.{json,md}": [
+      "prettier --write"
+    ]
+  },
+  "dependencies": {
+    "@nestjs/common": "^8.0.0",
+    "@nestjs/core": "^8.0.0",
+    "@nestjs/platform-express": "^8.0.0",
+    "reflect-metadata": "^0.1.13",
+    "rimraf": "^3.0.2",
+    "rxjs": "^7.2.0",
+    "uuid": "^8.3.2",
+    "zod": "^3.14.2"
+  },
+  "devDependencies": {
+    "@nestjs/cli": "^8.0.0",
+    "@nestjs/schematics": "^8.0.0",
+    "@nestjs/testing": "^8.0.0",
+    "@tsd/typescript": "^4.6.4",
+    "@types/express": "^4.17.13",
+    "@types/jest": "^27.5.0",
+    "@types/node": "^16.11.7",
+    "@types/supertest": "^2.0.11",
+    "@types/uuid": "^8.3.4",
+    "@typescript-eslint/eslint-plugin": "^5.22.0",
+    "@typescript-eslint/parser": "^5.22.0",
+    "dotenv-cli": "^5.0.0",
+    "esbuild-register": "^3.3.2",
+    "eslint": "^8.11.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-import-resolver-typescript": "^2.5.0",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-prettier": "^4.0.0",
+    "husky": "^7.0.0",
+    "jest": "^28.0.3",
+    "jest-runner-tsd": "^3.0.0",
+    "lint-staged": "^12.3.7",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.6.0",
+    "source-map-support": "^0.5.20",
+    "supertest": "^6.2.3",
+    "ts-jest": "28.0.0-next.3",
+    "tsconfig-paths": "^4.0.0",
+    "typescript": "^4.6.2"
+  }
+}
