@@ -9,6 +9,8 @@
     "Parens",
     "prebuild",
     "Prettierrc",
+    "textlint",
+    "textlintrc",
     "vite",
     "vitejs",
     "vitest"

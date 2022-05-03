@@ -7,17 +7,18 @@
   "workspaceFolder": "/workspaces/backend",
   "overrideCommand": true,
   "extensions": [
-    "mutantdino.resourcemonitor",
-    "eamodio.gitlens",
-    "mhutchie.git-graph",
-    "esbenp.prettier-vscode",
-    "dbaeumer.vscode-eslint",
-    "hbenl.vscode-test-explorer",
-    "kavod-io.vscode-jest-test-adapter",
-    "irongeek.vscode-env",
-    "streetsidesoftware.code-spell-checker",
     "AbhijoyBasak.nestjs-files",
-    "Prisma.prisma"
+    "dbaeumer.vscode-eslint",
+    "eamodio.gitlens",
+    "esbenp.prettier-vscode",
+    "hbenl.vscode-test-explorer",
+    "irongeek.vscode-env",
+    "kavod-io.vscode-jest-test-adapter",
+    "mhutchie.git-graph",
+    "mutantdino.resourcemonitor",
+    "Perkovec.emoji",
+    "Prisma.prisma",
+    "streetsidesoftware.code-spell-checker"
   ],
   "settings": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",

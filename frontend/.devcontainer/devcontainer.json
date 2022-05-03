@@ -7,16 +7,17 @@
   "workspaceFolder": "/workspaces/frontend",
   "overrideCommand": true,
   "extensions": [
-    "mutantdino.resourcemonitor",
-    "eamodio.gitlens",
-    "mhutchie.git-graph",
-    "esbenp.prettier-vscode",
     "dbaeumer.vscode-eslint",
+    "dsznajder.es7-react-js-snippets",
+    "eamodio.gitlens",
+    "esbenp.prettier-vscode",
     "hbenl.vscode-test-explorer",
-    "kavod-io.vscode-jest-test-adapter",
     "irongeek.vscode-env",
-    "streetsidesoftware.code-spell-checker",
-    "dsznajder.es7-react-js-snippets"
+    "kavod-io.vscode-jest-test-adapter",
+    "mhutchie.git-graph",
+    "mutantdino.resourcemonitor",
+    "Perkovec.emoji",
+    "streetsidesoftware.code-spell-checker"
   ],
   "settings": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
