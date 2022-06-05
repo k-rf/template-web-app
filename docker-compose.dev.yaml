@@ -76,6 +76,23 @@ services:
         source: backend_vscode_extensions
         target: ${BACKEND_REMOTE_HOME}/.vscode-server/extensions
 
+  database:
+    build:
+      context: .
+      dockerfile: ./database/Dockerfile
+    container_name: ${DATABASE_CONTAINER_NAME}
+    environment:
+      - POSTGRES_PASSWORD=${DATABASE_PASSWORD}
+      - DATABASE_ROLE=${DATABASE_ROLE}
+      - DATABASE_PASSWORD=${DATABASE_PASSWORD}
+    tty: true
+    ports:
+      - 5432:5432
+    volumes:
+      - type: volume
+        source: database_persistence
+        target: /var/lib/postgresql/data
+
 networks:
   default:
     name: ${NETWORK_NAME}
@@ -97,3 +114,5 @@ volumes:
   backend_vscode_extensions:
     name: ${BACKEND_VSCODE_EXTENSIONS_VOLUME_NAME}
 
+  database_persistence:
+    name: ${DATABASE_PERSISTENCE_VOLUME_NAME}

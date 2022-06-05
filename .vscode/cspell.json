@@ -8,12 +8,15 @@
     "nestjs",
     "nothrow",
     "Parens",
+    "CREATEDB",
     "prebuild",
     "Prettierrc",
     "textlint",
     "textlintrc",
+    "ossp",
     "vite",
     "vitejs",
-    "vitest"
+    "vitest",
+    "psql"
   ]
 }
