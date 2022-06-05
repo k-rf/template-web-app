@@ -31,3 +31,5 @@ RUN mkdir -p ${REMOTE_HOME}/.config \
     echo '[nodejs]'; \
     echo 'format = "via [⚡ $version](bold green) "'; \
     } >> ${REMOTE_HOME}/.config/starship.toml
+
+RUN yarn global add zx

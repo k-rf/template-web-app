@@ -6,6 +6,7 @@
     "esbuild",
     "linebreak",
     "nestjs",
+    "nothrow",
     "Parens",
     "prebuild",
     "Prettierrc",
