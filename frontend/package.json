@@ -13,6 +13,7 @@
     "check:all": "npm-run-all -s check:type check:format check:lint",
     "test": "vitest",
     "test:cov": "vitest run --coverage",
+    "test:ss": "vitest run --config vite.config.snapshot.ts",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
