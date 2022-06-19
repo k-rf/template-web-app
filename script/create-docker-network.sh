@@ -1,3 +1,5 @@
-#! /bin/sh
+#! /usr/bin/env bash
 
-docker network create template_web_app_network
+. .env
+
+docker network create ${NETWORK_NAME}

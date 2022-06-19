@@ -1,7 +1,7 @@
 #! /usr/bin/env bash
 
 role=${DATABASE_ROLE}
-database=${DATABASE_ROLE}_database
+database=${DATABASE_NAME}
 
 alias psql="psql -U postgres -d ${database}"
 
@@ -11,4 +11,4 @@ psql -c "GRANT ALL ON DATABASE ${database} TO ${role}"
 
 psql -c "SET timezone TO 'UTC'"
 
-psql -c "CREATE EXTENSION uuid-ossp"
+psql -c 'CREATE EXTENSION "uuid-ossp"'

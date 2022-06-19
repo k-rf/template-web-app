@@ -11,9 +11,9 @@ RUN userdel -r node && useradd -m ${REMOTE_USER} -u 1000 -s /bin/bash
 RUN yarn global add @nestjs/cli
 
 RUN SNIPPET="export PROMPT_COMMAND='history -a' && export HISTFILE=/commandhistory/.bash_history" \
-    && mkdir -p /commandhistory ${REMOTE_HOME}/.vscode-server/extensions \
+    && mkdir -p /commandhistory ${REMOTE_HOME}/.vscode-server/extensions ${REMOTE_WORKSPACES}/node_modules \
     && touch /commandhistory/.bash_history \
-    && chown -R ${REMOTE_USER}:${REMOTE_USER} /commandhistory ${REMOTE_HOME}/.vscode-server \
+    && chown -R ${REMOTE_USER}:${REMOTE_USER} /commandhistory ${REMOTE_HOME}/.vscode-server ${REMOTE_WORKSPACES}/node_modules \
     && echo ${SNIPPET} >> "${REMOTE_HOME}/.bashrc"
 
 RUN sh -c "$(curl -fsSL https://starship.rs/install.sh)" -- --yes \
