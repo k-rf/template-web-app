@@ -5,8 +5,8 @@ import { Uuid } from "./uuid";
 
 describe("Uuid", () => {
   describe("constructor", () => {
-    it.each([uuidV4(), undefined])('Accepted: "%s"', (value) => {
-      expect(z.string().uuid().safeParse(new Uuid(value).valueOf()).success).toBeTruthy();
+    it.each([uuidV4(), undefined])('Accepted: "%s"', (a) => {
+      expect(z.string().uuid().safeParse(new Uuid(a)._).success).toBeTruthy();
     });
 
     it.each(["", "abc"])('Rejected: "%s"', (value) => {

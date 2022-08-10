@@ -1,7 +1,19 @@
+import { Collection } from "~/shared/collection";
+
 import { DomainPrimitive, Primitive } from "./domain-primitive";
 
 class TestValueObject extends DomainPrimitive<Primitive, "TestValueObject"> {
+  type = "TestValueObject" as const;
+
   protected validate(value: Primitive): Primitive {
+    return value;
+  }
+}
+
+class TestCollection extends Collection<TestValueObject, "TestCollection"> {
+  type = "TestCollection" as const;
+
+  validate(value: TestValueObject[]): TestValueObject[] {
     return value;
   }
 }
@@ -12,6 +24,8 @@ type Props = {
 };
 
 class CompositeTestValueObject extends DomainPrimitive<Props, "CompositeTestValueObject"> {
+  type = "CompositeTestValueObject" as const;
+
   protected validate(value: Props): Props {
     return value;
   }
@@ -20,8 +34,6 @@ class CompositeTestValueObject extends DomainPrimitive<Props, "CompositeTestValu
 describe("DomainPrimitive", () => {
   describe("equals", () => {
     it.each([
-      [null, null, true],
-      [null, 0, false],
       [1, 1, true],
       [1, 2, false],
       ["abc", "abc", true],
@@ -29,13 +41,13 @@ describe("DomainPrimitive", () => {
       [new Date(0), new Date(0), true],
       [new Date(0), new Date(1), false],
       [
-        new TestValueObject([new TestValueObject(0), new TestValueObject(1)]),
-        new TestValueObject([new TestValueObject(0), new TestValueObject(1)]),
+        new TestValueObject(new TestCollection([new TestValueObject(0), new TestValueObject(1)])),
+        new TestValueObject(new TestCollection([new TestValueObject(0), new TestValueObject(1)])),
         true,
       ],
       [
-        new TestValueObject([new TestValueObject(0), new TestValueObject(1)]),
-        new TestValueObject([new TestValueObject(1), new TestValueObject(0)]),
+        new TestValueObject(new TestCollection([new TestValueObject(0), new TestValueObject(1)])),
+        new TestValueObject(new TestCollection([new TestValueObject(1), new TestValueObject(0)])),
         false,
       ],
       [new TestValueObject(0), new TestValueObject(0), true],
@@ -93,26 +105,6 @@ describe("DomainPrimitive", () => {
       const valueB = new TestValueObject(b);
 
       expect(valueA.equals(valueB)).toStrictEqual(expected);
-    });
-  });
-
-  describe("valueOf", () => {
-    const valueA = new TestValueObject("valueA");
-    const valueB = new TestValueObject("valueB");
-    const testValue = new CompositeTestValueObject({
-      valueA,
-      valueB,
-    });
-
-    it("キーを指定せずに値を取得する", () => {
-      expect(testValue.valueOf()).toStrictEqual({ valueA, valueB });
-    });
-
-    it.each<[keyof Props, Props[keyof Props]]>([
-      ["valueA", valueA],
-      ["valueB", valueB],
-    ])("キーを指定して値を取得する", (a, expected) => {
-      expect(testValue.valueOf(a)).toStrictEqual(expected);
     });
   });
 });

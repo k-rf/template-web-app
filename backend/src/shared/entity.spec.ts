@@ -2,15 +2,21 @@ import { DomainPrimitive } from "./domain-primitive";
 import { Entity } from "./entity";
 import { Uuid } from "./uuid";
 
-class TestId extends Uuid<"TestId"> {}
+class TestId extends Uuid<"TestId"> {
+  override type = "TestId" as const;
+}
 
 class TestNumber extends DomainPrimitive<number, "TestNumber"> {
+  type = "TestNumber" as const;
+
   protected validate(value: number): number {
     return value;
   }
 }
 
 class TestString extends DomainPrimitive<string, "TestString"> {
+  type = "TestString" as const;
+
   protected validate(value: string): string {
     return value;
   }
@@ -23,6 +29,8 @@ type Props = {
 };
 
 class TestEntity extends Entity<Props, "TestEntity"> {
+  type = "TestEntity" as const;
+
   protected validate(value: Props): Props {
     return value;
   }
@@ -75,22 +83,6 @@ describe("DomainPrimitive", () => {
       ],
     ])("%s equals %s => %s", (a, b, expected) => {
       expect(a.equals(b)).toStrictEqual(expected);
-    });
-
-    describe("valueOf", () => {
-      const id = new TestId();
-      const num = new TestNumber(1);
-      const str = new TestString("abc");
-
-      const entity = new TestEntity({ id, num, str });
-
-      it.each<[keyof Props, Props[keyof Props]]>([
-        ["id", id],
-        ["num", num],
-        ["str", str],
-      ])("キーを指定して値を取得する", (a, expected) => {
-        expect(entity.valueOf(a)).toStrictEqual(expected);
-      });
     });
   });
 });
