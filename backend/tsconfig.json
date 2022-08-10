@@ -13,9 +13,11 @@
     "baseUrl": "./",
     "incremental": true,
     "skipLibCheck": true,
-    "noImplicitAny": false,
-    "forceConsistentCasingInFileNames": false,
-    "noFallthroughCasesInSwitch": false,
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitAny": true,
+    "noImplicitOverride": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUncheckedIndexedAccess": true,
     "paths": {
       "~/*": ["src/*"]
     }
