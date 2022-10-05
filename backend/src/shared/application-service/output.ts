@@ -1,7 +1,7 @@
 import { Frozen } from "~/util/utility-type";
 
 export abstract class Output<T, U extends string> {
-  readonly brand = "Output";
+  private readonly brand = "Output";
   abstract readonly type: U;
 
   readonly value: Frozen<T>;

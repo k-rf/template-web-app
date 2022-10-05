@@ -51,6 +51,22 @@
       ""
     ]
   },
+  "Collection": {
+    "scope": "typescript",
+    "prefix": "col",
+    "body": [
+      "import { Collection } from \"~/shared/domain/collection\";",
+      "",
+      "export class $1Collection extends Collection<$1, \"$1Collection\"> {",
+      "  readonly type = \"$1Collection\";",
+      "",
+      "  validate(value: $1[]): $1[] {",
+      "    $0",
+      "  }",
+      "}",
+      ""
+    ]
+  },
   "Uuid": {
     "scope": "typescript",
     "prefix": "uid",
@@ -58,6 +74,38 @@
       "import { Uuid } from \"~/shared/uuid\";",
       "",
       "export class $1 extends Uuid<\"$1\"> {",
+      "  readonly type = \"$1\";",
+      "}",
+      ""
+    ]
+  },
+  "Application Service Input": {
+    "scope": "typescript",
+    "prefix": "ain",
+    "body": [
+      "import { Input } from \"~/shared/application-service/input\";",
+      "",
+      "type Props = {",
+      "  $0",
+      "};",
+      "",
+      "export class $1 extends Input<Props, \"$1\"> {",
+      "  readonly type = \"$1\";",
+      "}",
+      ""
+    ]
+  },
+  "Application Service Output": {
+    "scope": "typescript",
+    "prefix": "aout",
+    "body": [
+      "import { Output } from \"~/shared/application-service/output\";",
+      "",
+      "type Props = {",
+      "  $0",
+      "};",
+      "",
+      "export class $1 extends Output<Props, \"$1\"> {",
       "  readonly type = \"$1\";",
       "}",
       ""
