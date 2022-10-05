@@ -1,5 +1,7 @@
-import { Collection } from "~/shared/collection";
 import { objectPropertySort } from "~/util/object-property-sort";
+import { Frozen } from "~/util/utility-type";
+
+import { Collection } from "./collection";
 
 type P = number | string | boolean | Date;
 type D = DomainPrimitive<Primitive, string>;
@@ -9,19 +11,16 @@ type O = Record<string, C | D>;
 export type Primitive = P | D | C | O;
 
 export abstract class DomainPrimitive<T extends Primitive, U extends string> {
+  readonly brand = "DomainPrimitive";
   abstract readonly type: U;
 
-  constructor(private readonly value: T) {
+  constructor(readonly value: Frozen<T>) {
     this.value = this.validate(value);
   }
 
-  protected abstract validate(value: T): T;
+  protected abstract validate(value: Frozen<T>): Frozen<T>;
 
-  get _() {
-    return this.value;
-  }
-
-  equals(that: DomainPrimitive<T, U>): boolean {
+  equals(that: Frozen<DomainPrimitive<T, U>>): boolean {
     return JSON.stringify(objectPropertySort(this)) === JSON.stringify(objectPropertySort(that));
   }
 }

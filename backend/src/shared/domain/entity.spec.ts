@@ -1,13 +1,14 @@
+import { Uuid } from "../uuid";
+
 import { DomainPrimitive } from "./domain-primitive";
 import { Entity } from "./entity";
-import { Uuid } from "./uuid";
 
 class TestId extends Uuid<"TestId"> {
-  override type = "TestId" as const;
+  readonly type = "TestId";
 }
 
 class TestNumber extends DomainPrimitive<number, "TestNumber"> {
-  type = "TestNumber" as const;
+  readonly type = "TestNumber";
 
   protected validate(value: number): number {
     return value;
@@ -15,7 +16,7 @@ class TestNumber extends DomainPrimitive<number, "TestNumber"> {
 }
 
 class TestString extends DomainPrimitive<string, "TestString"> {
-  type = "TestString" as const;
+  readonly type = "TestString";
 
   protected validate(value: string): string {
     return value;
@@ -29,7 +30,7 @@ type Props = {
 };
 
 class TestEntity extends Entity<Props, "TestEntity"> {
-  type = "TestEntity" as const;
+  readonly type = "TestEntity";
 
   protected validate(value: Props): Props {
     return value;

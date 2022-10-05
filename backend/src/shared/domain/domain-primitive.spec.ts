@@ -1,9 +1,8 @@
-import { Collection } from "~/shared/collection";
-
+import { Collection } from "./collection";
 import { DomainPrimitive, Primitive } from "./domain-primitive";
 
 class TestValueObject extends DomainPrimitive<Primitive, "TestValueObject"> {
-  type = "TestValueObject" as const;
+  readonly type = "TestValueObject";
 
   protected validate(value: Primitive): Primitive {
     return value;
@@ -11,7 +10,7 @@ class TestValueObject extends DomainPrimitive<Primitive, "TestValueObject"> {
 }
 
 class TestCollection extends Collection<TestValueObject, "TestCollection"> {
-  type = "TestCollection" as const;
+  readonly type = "TestCollection";
 
   validate(value: TestValueObject[]): TestValueObject[] {
     return value;
@@ -24,7 +23,7 @@ type Props = {
 };
 
 class CompositeTestValueObject extends DomainPrimitive<Props, "CompositeTestValueObject"> {
-  type = "CompositeTestValueObject" as const;
+  readonly type = "CompositeTestValueObject";
 
   protected validate(value: Props): Props {
     return value;

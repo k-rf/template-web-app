@@ -1,11 +1,9 @@
 import { v4 as uuidV4 } from "uuid";
 import { z } from "zod";
 
-import { DomainPrimitive } from "./domain-primitive";
+import { DomainPrimitive } from "./domain/domain-primitive";
 
-export class Uuid<T extends string> extends DomainPrimitive<string, T> {
-  type: T = "Uuid" as T;
-
+export abstract class Uuid<T extends string> extends DomainPrimitive<string, T> {
   protected validate(value: string): string {
     try {
       return z.string().uuid().parse(value);
