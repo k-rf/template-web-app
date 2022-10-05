@@ -19,7 +19,7 @@
     "scope": "typescript",
     "prefix": "dp",
     "body": [
-      "import { DomainPrimitive } from \"~/shared/domain-primitive\";",
+      "import { DomainPrimitive } from \"~/shared/domain/domain-primitive\";",
       "",
       "export class $1 extends DomainPrimitive<$2, \"$1\"> {",
       "  readonly type = \"$1\";",
@@ -35,7 +35,7 @@
     "scope": "typescript",
     "prefix": "ent",
     "body": [
-      "import { Entity } from \"~/shared/entity\";",
+      "import { Entity } from \"~/shared/domain/entity\";",
       "",
       "type Props = {",
       "  $2",
@@ -47,10 +47,18 @@
       "  protected validate(value: Props): Props {",
       "    $0",
       "  }",
+      "}",
+      ""
+    ]
+  },
+  "Uuid": {
+    "scope": "typescript",
+    "prefix": "uid",
+    "body": [
+      "import { Uuid } from \"~/shared/uuid\";",
       "",
-      "  constructor(props: Props) {",
-      "    super(props);",
-      "  }",
+      "export class $1 extends Uuid<\"$1\"> {",
+      "  readonly type = \"$1\";",
       "}",
       ""
     ]
