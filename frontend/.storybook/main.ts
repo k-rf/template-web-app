@@ -10,6 +10,7 @@ const config: StorybookViteConfig = {
   framework: "@storybook/react",
   core: {
     builder: "@storybook/builder-vite",
+    disableTelemetry: true,
   },
   viteFinal: (config) => {
     return config;
