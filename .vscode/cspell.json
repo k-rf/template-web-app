@@ -4,8 +4,11 @@
   "ignorePaths": [".devcontainer", "node_modules", "*.lock"],
   "words": [
     "clazz",
+    "commandhistory",
     "CREATEDB",
+    "devcontainer",
     "esbuild",
+    "initdb",
     "linebreak",
     "nestjs",
     "nothrow",

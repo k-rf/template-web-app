@@ -1,21 +1,38 @@
-FROM node:16-bullseye
+FROM node:18-bullseye
 
 ARG REMOTE_USER
 ARG REMOTE_WORKSPACES
 ARG REMOTE_HOME
 
-ENV PATH=$PATH:${REMOTE_HOME}/.yarn/bin
-
-RUN userdel -r node && useradd -m ${REMOTE_USER} -u 1000 -s /bin/bash
-
+# パッケージのインストール
+# ------------------------------------------------------------------------------
+RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
+    && apt-get -y install --no-install-recommends sudo less locales
 RUN yarn global add @nestjs/cli
 
+# ユーザー設定
+# ------------------------------------------------------------------------------
+RUN userdel -r node && useradd -m ${REMOTE_USER} -u 1000 -s /bin/bash
+# ローカル開発環境のため許容している
+RUN echo "${REMOTE_USER} ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
+
+# 日本語化対応
+# ------------------------------------------------------------------------------
+RUN sed -i -e 's/# \(ja_JP.UTF-8\)/\1/' /etc/locale.gen \
+    && locale-gen \
+    && update-locale LANG=ja_JP.UTF-8
+ENV LANG=ja_JP.UTF-8
+
+# 永続化
+# ------------------------------------------------------------------------------
 RUN SNIPPET="export PROMPT_COMMAND='history -a' && export HISTFILE=/commandhistory/.bash_history" \
     && mkdir -p /commandhistory ${REMOTE_HOME}/.vscode-server/extensions ${REMOTE_WORKSPACES}/node_modules \
     && touch /commandhistory/.bash_history \
     && chown -R ${REMOTE_USER}:${REMOTE_USER} /commandhistory ${REMOTE_HOME}/.vscode-server ${REMOTE_WORKSPACES}/node_modules \
     && echo ${SNIPPET} >> "${REMOTE_HOME}/.bashrc"
 
+# プロンプトのカスタマイズ
+# ------------------------------------------------------------------------------
 RUN sh -c "$(curl -fsSL https://starship.rs/install.sh)" -- --yes \
     && echo 'eval "$(starship init bash)"' >> ${REMOTE_HOME}/.bashrc
 

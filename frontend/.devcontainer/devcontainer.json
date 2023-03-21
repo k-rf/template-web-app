@@ -1,62 +1,68 @@
 {
-  "name": "template_web_app_frontend",
-  "remoteUser": "template_web_app_frontend",
+  "name": "template-web-app-frontend",
+  "remoteUser": "template-web-app-frontend",
   "dockerComposeFile": "../../docker-compose.dev.yaml",
   "service": "frontend",
   "postAttachCommand": "yarn install",
   "workspaceFolder": "/workspaces/frontend",
   "overrideCommand": true,
-  "extensions": [
-    "albymor.increment-selection",
-    "bodil.file-browser",
-    "dbaeumer.vscode-eslint",
-    "dsznajder.es7-react-js-snippets",
-    "eamodio.gitlens",
-    "esbenp.prettier-vscode",
-    "formulahendry.auto-close-tag",
-    "formulahendry.auto-rename-tag",
-    "foxundermoon.shell-format",
-    "Gruntfuggly.todo-tree",
-    "hbenl.vscode-test-explorer",
-    "hediet.vscode-drawio",
-    "irongeek.vscode-env",
-    "kahole.magit",
-    "kavod-io.vscode-jest-test-adapter",
-    "mhutchie.git-graph",
-    "mikestead.dotenv",
-    "ms-azuretools.vscode-docker",
-    "MS-vsliveshare.vsliveshare",
-    "mutantdino.resourcemonitor",
-    "Perkovec.emoji",
-    "redhat.vscode-yaml",
-    "shd101wyy.markdown-preview-enhanced",
-    "streetsidesoftware.code-spell-checker",
-    "taichi.vscode-textlint",
-    "yzhang.markdown-all-in-one"
-  ],
-  "settings": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnSaveMode": "file",
-    "editor.formatOnSave": true,
-    "editor.codeActionsOnSave": {
-      "source.fixAll": true
-    },
-    "files.trimFinalNewlines": true,
-    "files.insertFinalNewline": true,
-    "files.trimTrailingWhitespace": true,
-    "[markdown]": {
-      "editor.unicodeHighlight.ambiguousCharacters": false,
-      "editor.unicodeHighlight.invisibleCharacters": false,
-      "editor.wordWrap": "on",
-      "editor.quickSuggestions": {
-        "other": "on",
-        "comments": "off",
-        "strings": "off"
-      },
-      "files.trimTrailingWhitespace": false,
-      "cSpell.fixSpellingWithRenameProvider": true,
-      "cSpell.advanced.feature.useReferenceProviderWithRename": true,
-      "cSpell.advanced.feature.useReferenceProviderRemove": "/^#+\\s/"
+  "shutdownAction": "none",
+  "runServices": ["frontend", "backend"],
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "albymor.increment-selection",
+        "bodil.file-browser",
+        "dbaeumer.vscode-eslint",
+        "dsznajder.es7-react-js-snippets",
+        "eamodio.gitlens",
+        "esbenp.prettier-vscode",
+        "formulahendry.auto-close-tag",
+        "formulahendry.auto-rename-tag",
+        "foxundermoon.shell-format",
+        "Gruntfuggly.todo-tree",
+        "hbenl.vscode-test-explorer",
+        "hediet.vscode-drawio",
+        "irongeek.vscode-env",
+        "kahole.magit",
+        "kavod-io.vscode-jest-test-adapter",
+        "mhutchie.git-graph",
+        "mikestead.dotenv",
+        "ms-azuretools.vscode-docker",
+        "MS-vsliveshare.vsliveshare",
+        "mutantdino.resourcemonitor",
+        "Perkovec.emoji",
+        "redhat.vscode-yaml",
+        "shd101wyy.markdown-preview-enhanced",
+        "streetsidesoftware.code-spell-checker",
+        "taichi.vscode-textlint",
+        "yzhang.markdown-all-in-one"
+      ],
+      "settings": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSaveMode": "file",
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+          "source.fixAll": true
+        },
+        "files.trimFinalNewlines": true,
+        "files.insertFinalNewline": true,
+        "files.trimTrailingWhitespace": true,
+        "[markdown]": {
+          "editor.unicodeHighlight.ambiguousCharacters": false,
+          "editor.unicodeHighlight.invisibleCharacters": false,
+          "editor.wordWrap": "on",
+          "editor.quickSuggestions": {
+            "other": "on",
+            "comments": "off",
+            "strings": "off"
+          },
+          "files.trimTrailingWhitespace": false,
+          "cSpell.fixSpellingWithRenameProvider": true,
+          "cSpell.advanced.feature.useReferenceProviderWithRename": true,
+          "cSpell.advanced.feature.useReferenceProviderRemove": "/^#+\\s/"
+        }
+      }
     }
   }
 }

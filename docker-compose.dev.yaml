@@ -20,19 +20,19 @@ services:
         source: .
         target: ${PROJECT_ROOT}
       - type: volume
-        source: root_bash_history
+        source: root-bash-history
         target: /commandhistory
       - type: volume
-        source: root_vscode_extensions
+        source: root-vscode-extensions
         target: ${ROOT_REMOTE_HOME}/.vscode-server/extensions
       - type: volume
-        source: root_node_modules
+        source: root-node_modules
         target: ${ROOT_REMOTE_WORKSPACES}/node_modules
       - type: volume
-        source: frontend_node_modules
+        source: frontend-node_modules
         target: ${FRONTEND_REMOTE_WORKSPACES}/node_modules
       - type: volume
-        source: backend_node_modules
+        source: backend-node_modules
         target: ${BACKEND_REMOTE_WORKSPACES}/node_modules
 
   frontend:
@@ -54,17 +54,20 @@ services:
         source: .
         target: ${PROJECT_ROOT}
       - type: volume
-        source: frontend_bash_history
+        source: frontend-bash-history
         target: /commandhistory
       - type: volume
-        source: frontend_vscode_extensions
+        source: frontend-vscode-extensions
         target: ${FRONTEND_REMOTE_HOME}/.vscode-server/extensions
       - type: volume
-        source: frontend_node_modules
+        source: root-node_modules
+        target: ${ROOT_REMOTE_WORKSPACES}/node_modules
+      - type: volume
+        source: frontend-node_modules
         target: ${FRONTEND_REMOTE_WORKSPACES}/node_modules
       - type: volume
-        source: root_node_modules
-        target: ${ROOT_REMOTE_WORKSPACES}/node_modules
+        source: backend-node_modules
+        target: ${BACKEND_REMOTE_WORKSPACES}/node_modules
 
   backend:
     build:
@@ -85,17 +88,20 @@ services:
         source: .
         target: ${PROJECT_ROOT}
       - type: volume
-        source: backend_bash_history
+        source: backend-bash-history
         target: /commandhistory
       - type: volume
-        source: backend_vscode_extensions
+        source: backend-vscode-extensions
         target: ${BACKEND_REMOTE_HOME}/.vscode-server/extensions
       - type: volume
-        source: backend_node_modules
-        target: ${BACKEND_REMOTE_WORKSPACES}/node_modules
-      - type: volume
-        source: root_node_modules
+        source: root-node_modules
         target: ${ROOT_REMOTE_WORKSPACES}/node_modules
+      - type: volume
+        source: frontend-node_modules
+        target: ${FRONTEND_REMOTE_WORKSPACES}/node_modules
+      - type: volume
+        source: backend-node_modules
+        target: ${BACKEND_REMOTE_WORKSPACES}/node_modules
     depends_on:
       - database
 
@@ -114,35 +120,34 @@ services:
       - 5432:5432
     volumes:
       - type: volume
-        source: database_persistence
+        source: database-persistence
         target: /var/lib/postgresql/data
 
 networks:
   default:
     name: ${NETWORK_NAME}
-    external: true
 
 volumes:
-  root_bash_history:
+  root-bash-history:
     name: ${ROOT_BASH_HISTORY_VOLUME_NAME}
-  root_vscode_extensions:
+  root-vscode-extensions:
     name: ${ROOT_VSCODE_EXTENSIONS_VOLUME_NAME}
-  root_node_modules:
+  root-node_modules:
     name: ${ROOT_NODE_MODULES_VOLUME_NAME}
 
-  frontend_bash_history:
+  frontend-bash-history:
     name: ${FRONTEND_BASH_HISTORY_VOLUME_NAME}
-  frontend_vscode_extensions:
+  frontend-vscode-extensions:
     name: ${FRONTEND_VSCODE_EXTENSIONS_VOLUME_NAME}
-  frontend_node_modules:
+  frontend-node_modules:
     name: ${FRONTEND_NODE_MODULES_VOLUME_NAME}
 
-  backend_bash_history:
+  backend-bash-history:
     name: ${BACKEND_BASH_HISTORY_VOLUME_NAME}
-  backend_vscode_extensions:
+  backend-vscode-extensions:
     name: ${BACKEND_VSCODE_EXTENSIONS_VOLUME_NAME}
-  backend_node_modules:
+  backend-node_modules:
     name: ${BACKEND_NODE_MODULES_VOLUME_NAME}
 
-  database_persistence:
+  database-persistence:
     name: ${DATABASE_PERSISTENCE_VOLUME_NAME}
