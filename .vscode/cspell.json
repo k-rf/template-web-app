@@ -17,6 +17,7 @@
     "prebuild",
     "Prettierrc",
     "psql",
+    "sonarjs",
     "storyshots",
     "textlint",
     "textlintrc",
