@@ -12,9 +12,9 @@
     "check:format": "prettier . --write",
     "check:type": "tsc --project tsconfig.json --pretty --noEmit",
     "check:all": "npm-run-all -s check:type check:format check:lint",
+    "pretest": "ts-node --esm ./tools/storybook-test-utils/runner.ts",
     "test": "vitest",
     "test:cov": "vitest run --coverage",
-    "test:ss": "vitest run --config vite.config.snapshot.ts",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
@@ -75,6 +75,7 @@
     "eslint-plugin-sonarjs": "^0.19.0",
     "eslint-plugin-storybook": "^0.6.12",
     "eslint-plugin-testing-library": "^5.10.2",
+    "glob": "^10.2.2",
     "happy-dom": "^8.9.0",
     "jest-extended": "^3.2.4",
     "jest-specific-snapshot": "^8.0.0",
