@@ -13,6 +13,7 @@
       "extensions": [
         "albymor.increment-selection",
         "bodil.file-browser",
+        "christian-kohler.path-intellisense",
         "dbaeumer.vscode-eslint",
         "dsznajder.es7-react-js-snippets",
         "eamodio.gitlens",
@@ -36,7 +37,8 @@
         "shd101wyy.markdown-preview-enhanced",
         "streetsidesoftware.code-spell-checker",
         "taichi.vscode-textlint",
-        "yzhang.markdown-all-in-one"
+        "yzhang.markdown-all-in-one",
+        "yoavbls.pretty-ts-errors"
       ],
       "settings": {
         "editor.defaultFormatter": "esbenp.prettier-vscode",
@@ -48,6 +50,9 @@
         "files.trimFinalNewlines": true,
         "files.insertFinalNewline": true,
         "files.trimTrailingWhitespace": true,
+        "eslint.workingDirectories": [{ "mode": "auto" }],
+        "eslint.experimental.useFlatConfig": true,
+        "eslint.rules.customizations": [{ "rule": "@cspell/spellchecker", "severity": "off" }],
         "[markdown]": {
           "editor.unicodeHighlight.ambiguousCharacters": false,
           "editor.unicodeHighlight.invisibleCharacters": false,
