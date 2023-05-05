@@ -3,6 +3,7 @@
   "version": "1.6.0",
   "license": "MIT",
   "private": true,
+  "type": "module",
   "scripts": {
     "prebuild": "rimraf dist",
     "build": "nest build",
@@ -10,7 +11,7 @@
     "start:dev": "nest start --watch",
     "start:debug": "nest start --debug --watch",
     "start:prod": "node dist/main",
-    "check:lint": "eslint \"{src,test}/**\" --fix --cache --ext .tsx,.ts,.js",
+    "check:lint": "eslint --fix --cache \"{src,test}/**\"",
     "check:format": "prettier . --write",
     "check:type": "tsc --project tsconfig.json --pretty --noEmit",
     "check:all": "npm-run-all -s check:type check:format check:lint",
@@ -70,6 +71,7 @@
     "prisma": "^4.11.0",
     "source-map-support": "^0.5.20",
     "supertest": "^6.3.3",
+    "template-web-app-config": "../config",
     "ts-jest": "29.0.5",
     "tsconfig-paths": "^4.1.2",
     "typescript": "^5.0.2"
