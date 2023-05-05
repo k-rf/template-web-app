@@ -1,11 +1,10 @@
-import type { ComponentMeta, ComponentStoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react";
 
 import { Field } from "./Field";
 
-type Meta = ComponentMeta<typeof Field>;
-type Story = ComponentStoryObj<typeof Field>;
+export default { component: Field } as Meta<typeof Field>;
 
-export default { title: "Elements/Field", component: Field } as Meta;
+type Story = StoryObj<typeof Field>;
 
 export const Default: Story = {};
 

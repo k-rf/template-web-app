@@ -1,34 +1,28 @@
 import { Box, Stack } from "@mui/material";
-import type { ComponentMeta, ComponentStoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react";
 
 import { Button } from "./Button";
 
-type Meta = ComponentMeta<typeof Button>;
-type Story = ComponentStoryObj<typeof Button>;
-
-export default { title: "Elements/Button", component: Button } as Meta;
-
-export const Default: Story = {
+export default {
+  component: Button,
   args: {
     children: "ボタン",
     color: "primary",
   },
-};
+} as Meta<typeof Button>;
+
+type Story = StoryObj<typeof Button>;
+
+export const Default: Story = {};
 
 export const Variant: Story = {
-  ...Default,
-  args: {
-    ...Default.args,
-  },
   render: (args) => {
     return <Buttons {...args} />;
   },
 };
 
 export const Disabled: Story = {
-  ...Default,
   args: {
-    ...Default.args,
     disabled: true,
   },
   render: (args) => {
@@ -37,14 +31,12 @@ export const Disabled: Story = {
 };
 
 export const Colors: Story = {
-  ...Default,
   args: {
-    ...Default.args,
     fullWidth: true,
   },
   render: (args) => {
     return (
-      <Stack direction={"column"} spacing={2}>
+      <Stack direction="column" spacing={2}>
         <Buttons {...args} color="primary" width={120}>
           primary
         </Buttons>
@@ -71,7 +63,7 @@ export const Colors: Story = {
 const Buttons = (args: Story["args"] & { width?: number }) => {
   const { width, ...props } = args;
   return (
-    <Stack direction={"row"} spacing={2}>
+    <Stack direction="row" spacing={2}>
       <Box width={width}>
         <Button {...props} variant="contained" />
       </Box>

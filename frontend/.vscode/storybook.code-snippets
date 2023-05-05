@@ -15,23 +15,22 @@
   // 	],
   // 	"description": "Log output to console"
   // }
+
   "Storybook": {
     "scope": "typescriptreact",
     "prefix": "sb",
     "body": [
-      "import type { ComponentMeta, ComponentStoryObj } from \"@storybook/react\";",
+      "import type { Meta, StoryObj } from \"@storybook/react\";",
       "import { userEvent, waitFor, within } from \"@storybook/testing-library\";",
       "",
       "import { $1 } from \"./$1\";",
       "",
-      "type Meta = ComponentMeta<typeof $1>;",
-      "type Story = ComponentStoryObj<typeof $1>;",
+      "export default { component: $1 } as Meta<typeof $1>;",
       "",
-      "export default { title: \"$2/$1\", component: $1 } as Meta;",
+      "type Story = StoryObj<typeof $1>;",
       "",
-      "export const Default: Story = {",
-      "  $0",
-      "}"
+      "export const Default: Story = {}",
+      ""
     ]
   },
   "Play Function": {

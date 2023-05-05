@@ -1,15 +1,17 @@
-import type { StorybookViteConfig } from "@storybook/builder-vite";
+import type { StorybookConfig } from "@storybook/react-vite";
 
-const config: StorybookViteConfig = {
+const config: StorybookConfig = {
   stories: ["../src/**/*.stories.mdx", "../src/**/*.stories.@(js|jsx|ts|tsx)"],
   addons: [
     "@storybook/addon-links",
     "@storybook/addon-essentials",
     "@storybook/addon-interactions",
   ],
-  framework: "@storybook/react",
+  framework: {
+    name: "@storybook/react-vite",
+    options: {},
+  },
   core: {
-    builder: "@storybook/builder-vite",
     disableTelemetry: true,
   },
   viteFinal: (config) => {
