@@ -10,7 +10,7 @@ class TestId extends Uuid<"TestId"> {
 describe("Uuid", () => {
   describe("constructor", () => {
     it.each([uuidV4(), undefined])('Accepted: "%s"', (a) => {
-      expect(z.string().uuid().safeParse(new TestId(a).value).success).toBeTruthy();
+      expect(z.string().uuid().safeParse(new TestId(a).unpack()).success).toBeTruthy();
     });
 
     it.each(["", "abc"])('Rejected: "%s"', (value) => {

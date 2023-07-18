@@ -1,17 +1,14 @@
-import { Uuid } from "../uuid";
-
-import { DomainPrimitive, Primitive } from "./domain-primitive";
+import { DomainPrimitive } from "./domain-primitive";
 import { Entity } from "./entity";
 
-export abstract class Collection<
-  T extends DomainPrimitive<Primitive, string> | Entity<{ id: Uuid<string> }, string>,
-  U extends string
-> {
-  abstract readonly type: U;
+type DomainObject = DomainPrimitive<string> | Entity<string>;
 
-  constructor(readonly value: T[]) {
-    this.value = this.validate(value);
+export abstract class Collection<T extends string> {
+  abstract readonly type: T;
+
+  constructor(private readonly value: DomainObject[]) {}
+
+  unpack() {
+    return this.value.map((e) => e.unpack());
   }
-
-  abstract validate(value: T[]): T[];
 }

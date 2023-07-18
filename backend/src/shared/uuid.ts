@@ -3,16 +3,22 @@ import { z } from "zod";
 
 import { DomainPrimitive } from "./domain/domain-primitive";
 
-export abstract class Uuid<T extends string> extends DomainPrimitive<string, T> {
-  protected validate(value: string): string {
-    try {
-      return z.string().uuid().parse(value);
-    } catch (e) {
-      throw new Error((e as z.ZodError).issues.at(0)?.message);
+export abstract class Uuid<T extends string> extends DomainPrimitive<T> {
+  abstract override readonly type: T;
+
+  private readonly value: string;
+
+  constructor(value?: string) {
+    super();
+
+    if (value === null || value === undefined) {
+      this.value = uuidV4();
+    } else {
+      this.value = z.string().uuid().parse(value);
     }
   }
 
-  constructor(value?: string) {
-    super(value === null || value === undefined ? uuidV4() : value);
+  unpack() {
+    return this.value;
   }
 }

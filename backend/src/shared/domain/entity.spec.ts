@@ -7,33 +7,51 @@ class TestId extends Uuid<"TestId"> {
   readonly type = "TestId";
 }
 
-class TestNumber extends DomainPrimitive<number, "TestNumber"> {
+class TestNumber extends DomainPrimitive<"TestNumber"> {
   readonly type = "TestNumber";
 
-  protected validate(value: number): number {
-    return value;
+  constructor(private readonly value: number) {
+    super();
+  }
+
+  unpack() {
+    return this.value;
   }
 }
 
-class TestString extends DomainPrimitive<string, "TestString"> {
+class TestString extends DomainPrimitive<"TestString"> {
   readonly type = "TestString";
 
-  protected validate(value: string): string {
-    return value;
+  constructor(private readonly value: string) {
+    super();
+  }
+
+  unpack() {
+    return this.value;
   }
 }
 
-type Props = {
-  id: TestId;
-  num: TestNumber;
-  str: TestString;
-};
-
-class TestEntity extends Entity<Props, "TestEntity"> {
+class TestEntity extends Entity<"TestEntity"> {
   readonly type = "TestEntity";
 
-  protected validate(value: Props): Props {
-    return value;
+  readonly id: TestId;
+  readonly num: TestNumber;
+  readonly str: TestString;
+
+  constructor(props: Property<TestEntity>) {
+    super();
+
+    this.id = props.id;
+    this.num = props.num;
+    this.str = props.str;
+  }
+
+  unpack(): Unpack<TestEntity> {
+    return {
+      id: this.id.unpack(),
+      num: this.num.unpack(),
+      str: this.str.unpack(),
+    };
   }
 }
 
@@ -83,7 +101,7 @@ describe("DomainPrimitive", () => {
         false,
       ],
     ])("%s equals %s => %s", (a, b, expected) => {
-      expect(a.equals(b)).toStrictEqual(expected);
+      expect(a.eq(b)).toStrictEqual(expected);
     });
   });
 });

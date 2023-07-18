@@ -2,10 +2,10 @@ import { Collection } from "~/shared/domain/collection";
 
 import { User } from "./user";
 
-export class UserCollection extends Collection<User, "UserCollection"> {
+export class UserCollection extends Collection<"UserCollection"> {
   readonly type = "UserCollection";
 
-  validate(value: User[]): User[] {
-    return value;
+  constructor(value: User[]) {
+    super(value);
   }
 }

@@ -1,26 +1,16 @@
-import { objectPropertySort } from "~/util/object-property-sort";
-import { Frozen } from "~/util/utility-type";
+export abstract class DomainPrimitive<T extends string> {
+  abstract readonly type: T;
 
-import { Collection } from "./collection";
-
-type P = number | string | boolean | Date;
-type D = DomainPrimitive<Primitive, string>;
-type C = Collection<D, string>;
-type O = Record<string, C | D>;
-
-export type Primitive = P | D | C | O;
-
-export abstract class DomainPrimitive<T extends Primitive, U extends string> {
-  readonly brand = "DomainPrimitive";
-  abstract readonly type: U;
-
-  constructor(readonly value: Frozen<T>) {
-    this.value = this.validate(value);
+  eq(that: DomainPrimitive<T>): boolean {
+    return Object.entries(this)
+      .filter<[keyof typeof that, unknown]>(
+        (entry): entry is [keyof typeof that, unknown] => typeof entry[1] !== "function",
+      )
+      .every(([key]) => {
+        // FIXME: DomainPrimitive の入れ子構造に対応できていない
+        return this[key].toString() === that[key].toString();
+      });
   }
 
-  protected abstract validate(value: Frozen<T>): Frozen<T>;
-
-  equals(that: Frozen<DomainPrimitive<T, U>>): boolean {
-    return JSON.stringify(objectPropertySort(this)) === JSON.stringify(objectPropertySort(that));
-  }
+  abstract unpack(): unknown;
 }

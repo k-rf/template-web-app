@@ -16,7 +16,7 @@ export class UserPrismaRepository implements UserRepository {
   constructor(private readonly prismaService: PrismaService) {}
 
   async findById(id: UserId): Promise<User> {
-    const result = await this.prismaService.user.findUnique({ where: { id: id.value } });
+    const result = await this.prismaService.user.findUnique({ where: { id: id.unpack() } });
 
     if (!result) {
       throw new InfrastructureError("Not Found");
@@ -39,8 +39,8 @@ export class UserPrismaRepository implements UserRepository {
             id: required(UserId, e.id),
             age: required(UserAge, e.age),
             name: required(UserName, e.name),
-          })
-      )
+          }),
+      ),
     );
   }
 }

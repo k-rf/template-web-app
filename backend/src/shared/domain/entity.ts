@@ -1,25 +1,13 @@
-import { Frozen } from "~/util/utility-type";
+import { DomainPrimitive } from "./domain-primitive";
 
-import { Uuid } from "../uuid";
+export abstract class Entity<T extends string> {
+  abstract readonly type: T;
 
-import { Collection } from "./collection";
-import { DomainPrimitive, Primitive } from "./domain-primitive";
+  abstract readonly id: DomainPrimitive<string>;
 
-type D = DomainPrimitive<Primitive, string>;
-type C = Collection<D, string>;
-type O = Record<"id", Uuid<string>> & Record<string, C | D>;
-
-export abstract class Entity<T extends O, U extends string> {
-  readonly brand = "Entity";
-  abstract readonly type: U;
-
-  constructor(readonly value: Frozen<T>) {
-    this.value = this.validate(value);
+  eq(that: Entity<T>): boolean {
+    return this.id.eq(that.id);
   }
 
-  protected abstract validate(value: Frozen<T>): Frozen<T>;
-
-  equals(that: Entity<T, U>): boolean {
-    return this.value.id.equals(that.value.id);
-  }
+  abstract unpack(): unknown;
 }

@@ -19,10 +19,6 @@ export class GetUserService extends ApplicationService<GetUserInput, GetUserOutp
 
     const result = await this.repository.findById(id);
 
-    return new GetUserOutput({
-      id: result.value.id.value,
-      age: result.value.age.value,
-      name: result.value.name.value,
-    });
+    return new GetUserOutput(result.unpack());
   }
 }

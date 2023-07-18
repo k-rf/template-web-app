@@ -4,16 +4,26 @@ import { UserAge } from "./user-age";
 import { UserId } from "./user-id";
 import { UserName } from "./user-name";
 
-type Props = {
-  id: UserId;
-  name: UserName;
-  age: UserAge;
-};
-
-export class User extends Entity<Props, "User"> {
+export class User extends Entity<"User"> {
   readonly type = "User";
 
-  protected validate(value: Props): Props {
-    return value;
+  readonly id: UserId;
+  readonly name: UserName;
+  readonly age: UserAge;
+
+  constructor(props: Property<User>) {
+    super();
+
+    this.id = props.id;
+    this.name = props.name;
+    this.age = props.age;
+  }
+
+  unpack(): Unpack<User> {
+    return {
+      id: this.id.unpack(),
+      name: this.name.unpack(),
+      age: this.age.unpack(),
+    };
   }
 }
