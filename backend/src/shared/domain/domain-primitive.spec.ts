@@ -48,14 +48,14 @@ describe("DomainPrimitive", () => {
       [new TestValueObject(1), new TestValueObject(2), false],
       [new TestValueObject("abc"), new TestValueObject("abc"), true],
       [new TestValueObject("abc"), new TestValueObject("xyz"), false],
-      // [new TestValueObject(new Date(0)), new TestValueObject(new Date(0)), true],
-      // [new TestValueObject(new Date(0)), new TestValueObject(new Date(1)), false],
+      [new TestValueObject(new Date(0)), new TestValueObject(new Date(0)), true],
+      [new TestValueObject(new Date(0)), new TestValueObject(new Date(1)), false],
       [new TestValueObject(0), new TestValueObject(0), true],
       [new TestValueObject(0), new TestValueObject(1), false],
       [new TestValueObject("abc"), new TestValueObject("abc"), true],
       [new TestValueObject("abc"), new TestValueObject("xyz"), false],
-      // [new TestValueObject(new Date(0)), new TestValueObject(new Date(0)), true],
-      // [new TestValueObject(new Date(0)), new TestValueObject(new Date(1)), false],
+      [new TestValueObject(new Date(0)), new TestValueObject(new Date(0)), true],
+      [new TestValueObject(new Date(0)), new TestValueObject(new Date(1)), false],
     ])("%s eq %s => %s", (a, b, expected) => {
       expect(a.eq(b)).toStrictEqual(expected);
     });
@@ -72,39 +72,39 @@ describe("DomainPrimitive", () => {
         }),
         true,
       ],
-      // [
-      //   new CompositeTestValueObject({
-      //     valueA: new TestValueObject(0),
-      //     valueB: new TestValueObject(0),
-      //   }),
-      //   new CompositeTestValueObject({
-      //     valueA: new TestValueObject(0),
-      //     valueB: new TestValueObject(1),
-      //   }),
-      //   false,
-      // ],
-      // [
-      //   new CompositeTestValueObject({
-      //     valueA: new TestValueObject(0),
-      //     valueB: new TestValueObject(0),
-      //   }),
-      //   new CompositeTestValueObject({
-      //     valueA: new TestValueObject(1),
-      //     valueB: new TestValueObject(0),
-      //   }),
-      //   false,
-      // ],
-      // [
-      //   new CompositeTestValueObject({
-      //     valueA: new TestValueObject(0),
-      //     valueB: new TestValueObject(0),
-      //   }),
-      //   new CompositeTestValueObject({
-      //     valueA: new TestValueObject(1),
-      //     valueB: new TestValueObject(1),
-      //   }),
-      //   false,
-      // ],
+      [
+        new CompositeTestValueObject({
+          valueA: new TestValueObject(0),
+          valueB: new TestValueObject(0),
+        }),
+        new CompositeTestValueObject({
+          valueA: new TestValueObject(0),
+          valueB: new TestValueObject(1),
+        }),
+        false,
+      ],
+      [
+        new CompositeTestValueObject({
+          valueA: new TestValueObject(0),
+          valueB: new TestValueObject(0),
+        }),
+        new CompositeTestValueObject({
+          valueA: new TestValueObject(1),
+          valueB: new TestValueObject(0),
+        }),
+        false,
+      ],
+      [
+        new CompositeTestValueObject({
+          valueA: new TestValueObject(0),
+          valueB: new TestValueObject(0),
+        }),
+        new CompositeTestValueObject({
+          valueA: new TestValueObject(1),
+          valueB: new TestValueObject(1),
+        }),
+        false,
+      ],
     ])("%s eq %s => %s", (a, b, expected) => {
       expect(a.eq(b)).toStrictEqual(expected);
     });
