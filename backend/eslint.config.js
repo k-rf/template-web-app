@@ -1,3 +1,3 @@
-import { baseRules, tsRules } from "template-web-app-config";
-
-export default [...baseRules, tsRules];
+module.exports = import("template-web-app-config").then((res) => {
+  return [...res.baseRules, res.tsRules];
+});
