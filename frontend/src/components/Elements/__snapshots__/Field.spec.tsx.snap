@@ -12,9 +12,9 @@ exports[`Field > 'Default' 1`] = `
         <input
           aria-invalid="false"
           class="MuiInputBase-input MuiOutlinedInput-input css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input"
-          defaultvalue=""
           id=":r0:"
           type="text"
+          value=""
         />
         <fieldset
           aria-hidden="true"
@@ -48,9 +48,9 @@ exports[`Field > 'Default' 2`] = `
         <input
           aria-invalid="false"
           class="MuiInputBase-input MuiOutlinedInput-input css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input"
-          defaultvalue=""
           id=":r0:"
           type="text"
+          value=""
         />
         <fieldset
           aria-hidden="true"
@@ -92,9 +92,9 @@ exports[`Field > 'Error' 1`] = `
         <input
           aria-invalid="true"
           class="MuiInputBase-input MuiOutlinedInput-input css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input"
-          defaultvalue=""
           id=":r2:"
           type="text"
+          value=""
         />
         <fieldset
           aria-hidden="true"
@@ -134,9 +134,9 @@ exports[`Field > 'Error' 2`] = `
         <input
           aria-invalid="true"
           class="MuiInputBase-input MuiOutlinedInput-input css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input"
-          defaultvalue=""
           id=":r2:"
           type="text"
+          value=""
         />
         <fieldset
           aria-hidden="true"
@@ -176,9 +176,9 @@ exports[`Field > 'Label' 1`] = `
         <input
           aria-invalid="false"
           class="MuiInputBase-input MuiOutlinedInput-input css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input"
-          defaultvalue=""
           id=":r1:"
           type="text"
+          value=""
         />
         <fieldset
           aria-hidden="true"
@@ -218,9 +218,9 @@ exports[`Field > 'Label' 2`] = `
         <input
           aria-invalid="false"
           class="MuiInputBase-input MuiOutlinedInput-input css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input"
-          defaultvalue=""
           id=":r1:"
           type="text"
+          value=""
         />
         <fieldset
           aria-hidden="true"

@@ -4,10 +4,10 @@ exports[`Button > 'Colors' 1`] = `
 <body>
   <div>
     <div
-      class="MuiStack-root css-1p5q5e5-MuiStack-root"
+      class="MuiStack-root css-pwj874-MuiStack-root"
     >
       <div
-        class="MuiStack-root css-e53awj-MuiStack-root"
+        class="MuiStack-root css-1h12o0g-MuiStack-root"
       >
         <div
           class="MuiBox-root css-1gtfl7l"
@@ -53,7 +53,7 @@ exports[`Button > 'Colors' 1`] = `
         </div>
       </div>
       <div
-        class="MuiStack-root css-e53awj-MuiStack-root"
+        class="MuiStack-root css-1h12o0g-MuiStack-root"
       >
         <div
           class="MuiBox-root css-1gtfl7l"
@@ -99,7 +99,7 @@ exports[`Button > 'Colors' 1`] = `
         </div>
       </div>
       <div
-        class="MuiStack-root css-e53awj-MuiStack-root"
+        class="MuiStack-root css-1h12o0g-MuiStack-root"
       >
         <div
           class="MuiBox-root css-1gtfl7l"
@@ -145,7 +145,7 @@ exports[`Button > 'Colors' 1`] = `
         </div>
       </div>
       <div
-        class="MuiStack-root css-e53awj-MuiStack-root"
+        class="MuiStack-root css-1h12o0g-MuiStack-root"
       >
         <div
           class="MuiBox-root css-1gtfl7l"
@@ -191,7 +191,7 @@ exports[`Button > 'Colors' 1`] = `
         </div>
       </div>
       <div
-        class="MuiStack-root css-e53awj-MuiStack-root"
+        class="MuiStack-root css-1h12o0g-MuiStack-root"
       >
         <div
           class="MuiBox-root css-1gtfl7l"
@@ -237,7 +237,7 @@ exports[`Button > 'Colors' 1`] = `
         </div>
       </div>
       <div
-        class="MuiStack-root css-e53awj-MuiStack-root"
+        class="MuiStack-root css-1h12o0g-MuiStack-root"
       >
         <div
           class="MuiBox-root css-1gtfl7l"
@@ -291,10 +291,10 @@ exports[`Button > 'Colors' 2`] = `
 <body>
   <div>
     <div
-      class="MuiStack-root css-1p5q5e5-MuiStack-root"
+      class="MuiStack-root css-pwj874-MuiStack-root"
     >
       <div
-        class="MuiStack-root css-e53awj-MuiStack-root"
+        class="MuiStack-root css-1h12o0g-MuiStack-root"
       >
         <div
           class="MuiBox-root css-1gtfl7l"
@@ -340,7 +340,7 @@ exports[`Button > 'Colors' 2`] = `
         </div>
       </div>
       <div
-        class="MuiStack-root css-e53awj-MuiStack-root"
+        class="MuiStack-root css-1h12o0g-MuiStack-root"
       >
         <div
           class="MuiBox-root css-1gtfl7l"
@@ -386,7 +386,7 @@ exports[`Button > 'Colors' 2`] = `
         </div>
       </div>
       <div
-        class="MuiStack-root css-e53awj-MuiStack-root"
+        class="MuiStack-root css-1h12o0g-MuiStack-root"
       >
         <div
           class="MuiBox-root css-1gtfl7l"
@@ -432,7 +432,7 @@ exports[`Button > 'Colors' 2`] = `
         </div>
       </div>
       <div
-        class="MuiStack-root css-e53awj-MuiStack-root"
+        class="MuiStack-root css-1h12o0g-MuiStack-root"
       >
         <div
           class="MuiBox-root css-1gtfl7l"
@@ -478,7 +478,7 @@ exports[`Button > 'Colors' 2`] = `
         </div>
       </div>
       <div
-        class="MuiStack-root css-e53awj-MuiStack-root"
+        class="MuiStack-root css-1h12o0g-MuiStack-root"
       >
         <div
           class="MuiBox-root css-1gtfl7l"
@@ -524,7 +524,7 @@ exports[`Button > 'Colors' 2`] = `
         </div>
       </div>
       <div
-        class="MuiStack-root css-e53awj-MuiStack-root"
+        class="MuiStack-root css-1h12o0g-MuiStack-root"
       >
         <div
           class="MuiBox-root css-1gtfl7l"
@@ -612,7 +612,7 @@ exports[`Button > 'Disabled' 1`] = `
 <body>
   <div>
     <div
-      class="MuiStack-root css-e53awj-MuiStack-root"
+      class="MuiStack-root css-1h12o0g-MuiStack-root"
     >
       <div
         class="MuiBox-root css-0"
@@ -659,7 +659,7 @@ exports[`Button > 'Disabled' 2`] = `
 <body>
   <div>
     <div
-      class="MuiStack-root css-e53awj-MuiStack-root"
+      class="MuiStack-root css-1h12o0g-MuiStack-root"
     >
       <div
         class="MuiBox-root css-0"
@@ -706,7 +706,7 @@ exports[`Button > 'Variant' 1`] = `
 <body>
   <div>
     <div
-      class="MuiStack-root css-e53awj-MuiStack-root"
+      class="MuiStack-root css-1h12o0g-MuiStack-root"
     >
       <div
         class="MuiBox-root css-0"
@@ -759,7 +759,7 @@ exports[`Button > 'Variant' 2`] = `
 <body>
   <div>
     <div
-      class="MuiStack-root css-e53awj-MuiStack-root"
+      class="MuiStack-root css-1h12o0g-MuiStack-root"
     >
       <div
         class="MuiBox-root css-0"
